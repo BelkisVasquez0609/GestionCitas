@@ -1,0 +1,471 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="GestionCitas1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Citas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdPaciente" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdSalon" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Fecha" Type="date" />
+          <Property Name="Hora" Type="datetime" />
+          <Property Name="Motivo" Type="nvarchar" MaxLength="50" />
+          <Property Name="IdEstadoCita" Type="uniqueidentifier" />
+          <Property Name="FechaCreado" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EstadoCitas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FechaCreado" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EstadoCivil">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FechaCreado" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ocupacion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FechaCreado" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pacientes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cedula" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+          <Property Name="Direccion" Type="text" />
+          <Property Name="Telefono" Type="nvarchar" MaxLength="12" />
+          <Property Name="Email" Type="text" />
+          <Property Name="Sexo" Type="char" MaxLength="1" />
+          <Property Name="OcupacionID" Type="uniqueidentifier" />
+          <Property Name="Celular" Type="nvarchar" MaxLength="12" />
+          <Property Name="EstadoCivilID" Type="uniqueidentifier" />
+          <Property Name="FechaNacimiento" Type="date" />
+          <Property Name="FechaCreado" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Salones">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Seq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Salon" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FechaCreado" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK__Citas__IdEstadoC__398D8EEE">
+          <End Role="EstadoCitas" Type="Self.EstadoCitas" Multiplicity="0..1" />
+          <End Role="Citas" Type="Self.Citas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstadoCitas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Citas">
+              <PropertyRef Name="IdEstadoCita" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Citas__IdPacient__3B75D760">
+          <End Role="Pacientes" Type="Self.Pacientes" Multiplicity="1" />
+          <End Role="Citas" Type="Self.Citas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pacientes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Citas">
+              <PropertyRef Name="IdPaciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Citas__IdSalon__3C69FB99">
+          <End Role="Salones" Type="Self.Salones" Multiplicity="1" />
+          <End Role="Citas" Type="Self.Citas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Salones">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Citas">
+              <PropertyRef Name="IdSalon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pacientes__Estad__403A8C7D">
+          <End Role="EstadoCivil" Type="Self.EstadoCivil" Multiplicity="0..1" />
+          <End Role="Pacientes" Type="Self.Pacientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstadoCivil">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pacientes">
+              <PropertyRef Name="EstadoCivilID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pacientes__Ocupa__46E78A0C">
+          <End Role="Ocupacion" Type="Self.Ocupacion" Multiplicity="0..1" />
+          <End Role="Pacientes" Type="Self.Pacientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ocupacion">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pacientes">
+              <PropertyRef Name="OcupacionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GestionCitas1ModelStoreContainer">
+          <EntitySet Name="Citas" EntityType="Self.Citas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EstadoCitas" EntityType="Self.EstadoCitas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EstadoCivil" EntityType="Self.EstadoCivil" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ocupacion" EntityType="Self.Ocupacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pacientes" EntityType="Self.Pacientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Salones" EntityType="Self.Salones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Citas__IdEstadoC__398D8EEE" Association="Self.FK__Citas__IdEstadoC__398D8EEE">
+            <End Role="EstadoCitas" EntitySet="EstadoCitas" />
+            <End Role="Citas" EntitySet="Citas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Citas__IdPacient__3B75D760" Association="Self.FK__Citas__IdPacient__3B75D760">
+            <End Role="Pacientes" EntitySet="Pacientes" />
+            <End Role="Citas" EntitySet="Citas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Citas__IdSalon__3C69FB99" Association="Self.FK__Citas__IdSalon__3C69FB99">
+            <End Role="Salones" EntitySet="Salones" />
+            <End Role="Citas" EntitySet="Citas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pacientes__Estad__403A8C7D" Association="Self.FK__Pacientes__Estad__403A8C7D">
+            <End Role="EstadoCivil" EntitySet="EstadoCivil" />
+            <End Role="Pacientes" EntitySet="Pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pacientes__Ocupa__46E78A0C" Association="Self.FK__Pacientes__Ocupa__46E78A0C">
+            <End Role="Ocupacion" EntitySet="Ocupacion" />
+            <End Role="Pacientes" EntitySet="Pacientes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GestionCitas1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Cita">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdPaciente" Type="Guid" Nullable="false" />
+          <Property Name="IdSalon" Type="Guid" Nullable="false" />
+          <Property Name="Fecha" Type="DateTime" Precision="0" />
+          <Property Name="Hora" Type="DateTime" Precision="3" />
+          <Property Name="Motivo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IdEstadoCita" Type="Guid" />
+          <Property Name="FechaCreado" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="EstadoCita" Relationship="Self.FK__Citas__IdEstadoC__398D8EEE" FromRole="Citas" ToRole="EstadoCitas" />
+          <NavigationProperty Name="Paciente" Relationship="Self.FK__Citas__IdPacient__3B75D760" FromRole="Citas" ToRole="Pacientes" />
+          <NavigationProperty Name="Salone" Relationship="Self.FK__Citas__IdSalon__3C69FB99" FromRole="Citas" ToRole="Salones" />
+        </EntityType>
+        <EntityType Name="EstadoCita">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FechaCreado" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Citas" Relationship="Self.FK__Citas__IdEstadoC__398D8EEE" FromRole="EstadoCitas" ToRole="Citas" />
+        </EntityType>
+        <EntityType Name="EstadoCivil">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FechaCreado" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Pacientes" Relationship="Self.FK__Pacientes__Estad__403A8C7D" FromRole="EstadoCivil" ToRole="Pacientes" />
+        </EntityType>
+        <EntityType Name="Ocupacion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FechaCreado" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Pacientes" Relationship="Self.FK__Pacientes__Ocupa__46E78A0C" FromRole="Ocupacion" ToRole="Pacientes" />
+        </EntityType>
+        <EntityType Name="Paciente">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cedula" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Direccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Sexo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="OcupacionID" Type="Guid" />
+          <Property Name="Celular" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="EstadoCivilID" Type="Guid" />
+          <Property Name="FechaNacimiento" Type="DateTime" Precision="0" />
+          <Property Name="FechaCreado" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Citas" Relationship="Self.FK__Citas__IdPacient__3B75D760" FromRole="Pacientes" ToRole="Citas" />
+          <NavigationProperty Name="EstadoCivil" Relationship="Self.FK__Pacientes__Estad__403A8C7D" FromRole="Pacientes" ToRole="EstadoCivil" />
+          <NavigationProperty Name="Ocupacion" Relationship="Self.FK__Pacientes__Ocupa__46E78A0C" FromRole="Pacientes" ToRole="Ocupacion" />
+        </EntityType>
+        <EntityType Name="Salone">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Seq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Salon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FechaCreado" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Citas" Relationship="Self.FK__Citas__IdSalon__3C69FB99" FromRole="Salones" ToRole="Citas" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK__Citas__IdEstadoC__398D8EEE">
+          <End Role="EstadoCitas" Type="Self.EstadoCita" Multiplicity="0..1" />
+          <End Role="Citas" Type="Self.Cita" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstadoCitas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Citas">
+              <PropertyRef Name="IdEstadoCita" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Citas__IdPacient__3B75D760">
+          <End Role="Pacientes" Type="Self.Paciente" Multiplicity="1" />
+          <End Role="Citas" Type="Self.Cita" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pacientes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Citas">
+              <PropertyRef Name="IdPaciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Citas__IdSalon__3C69FB99">
+          <End Role="Salones" Type="Self.Salone" Multiplicity="1" />
+          <End Role="Citas" Type="Self.Cita" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Salones">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Citas">
+              <PropertyRef Name="IdSalon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pacientes__Estad__403A8C7D">
+          <End Role="EstadoCivil" Type="Self.EstadoCivil" Multiplicity="0..1" />
+          <End Role="Pacientes" Type="Self.Paciente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstadoCivil">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pacientes">
+              <PropertyRef Name="EstadoCivilID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pacientes__Ocupa__46E78A0C">
+          <End Role="Ocupacion" Type="Self.Ocupacion" Multiplicity="0..1" />
+          <End Role="Pacientes" Type="Self.Paciente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ocupacion">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pacientes">
+              <PropertyRef Name="OcupacionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GestionCitas1Entities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Citas" EntityType="Self.Cita" />
+          <EntitySet Name="EstadoCitas" EntityType="Self.EstadoCita" />
+          <EntitySet Name="EstadoCivils" EntityType="Self.EstadoCivil" />
+          <EntitySet Name="Ocupacions" EntityType="Self.Ocupacion" />
+          <EntitySet Name="Pacientes" EntityType="Self.Paciente" />
+          <EntitySet Name="Salones" EntityType="Self.Salone" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <AssociationSet Name="FK__Citas__IdEstadoC__398D8EEE" Association="Self.FK__Citas__IdEstadoC__398D8EEE">
+            <End Role="EstadoCitas" EntitySet="EstadoCitas" />
+            <End Role="Citas" EntitySet="Citas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Citas__IdPacient__3B75D760" Association="Self.FK__Citas__IdPacient__3B75D760">
+            <End Role="Pacientes" EntitySet="Pacientes" />
+            <End Role="Citas" EntitySet="Citas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Citas__IdSalon__3C69FB99" Association="Self.FK__Citas__IdSalon__3C69FB99">
+            <End Role="Salones" EntitySet="Salones" />
+            <End Role="Citas" EntitySet="Citas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pacientes__Estad__403A8C7D" Association="Self.FK__Pacientes__Estad__403A8C7D">
+            <End Role="EstadoCivil" EntitySet="EstadoCivils" />
+            <End Role="Pacientes" EntitySet="Pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pacientes__Ocupa__46E78A0C" Association="Self.FK__Pacientes__Ocupa__46E78A0C">
+            <End Role="Ocupacion" EntitySet="Ocupacions" />
+            <End Role="Pacientes" EntitySet="Pacientes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GestionCitas1ModelStoreContainer" CdmEntityContainer="GestionCitas1Entities1">
+          <EntitySetMapping Name="Citas">
+            <EntityTypeMapping TypeName="GestionCitas1Model.Cita">
+              <MappingFragment StoreEntitySet="Citas">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+                <ScalarProperty Name="IdPaciente" ColumnName="IdPaciente" />
+                <ScalarProperty Name="IdSalon" ColumnName="IdSalon" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Hora" ColumnName="Hora" />
+                <ScalarProperty Name="Motivo" ColumnName="Motivo" />
+                <ScalarProperty Name="IdEstadoCita" ColumnName="IdEstadoCita" />
+                <ScalarProperty Name="FechaCreado" ColumnName="FechaCreado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EstadoCitas">
+            <EntityTypeMapping TypeName="GestionCitas1Model.EstadoCita">
+              <MappingFragment StoreEntitySet="EstadoCitas">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="FechaCreado" ColumnName="FechaCreado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EstadoCivils">
+            <EntityTypeMapping TypeName="GestionCitas1Model.EstadoCivil">
+              <MappingFragment StoreEntitySet="EstadoCivil">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="FechaCreado" ColumnName="FechaCreado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ocupacions">
+            <EntityTypeMapping TypeName="GestionCitas1Model.Ocupacion">
+              <MappingFragment StoreEntitySet="Ocupacion">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="FechaCreado" ColumnName="FechaCreado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pacientes">
+            <EntityTypeMapping TypeName="GestionCitas1Model.Paciente">
+              <MappingFragment StoreEntitySet="Pacientes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="OcupacionID" ColumnName="OcupacionID" />
+                <ScalarProperty Name="Celular" ColumnName="Celular" />
+                <ScalarProperty Name="EstadoCivilID" ColumnName="EstadoCivilID" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="FechaCreado" ColumnName="FechaCreado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Salones">
+            <EntityTypeMapping TypeName="GestionCitas1Model.Salone">
+              <MappingFragment StoreEntitySet="Salones">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Seq" ColumnName="Seq" />
+                <ScalarProperty Name="Salon" ColumnName="Salon" />
+                <ScalarProperty Name="FechaCreado" ColumnName="FechaCreado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="GestionCitas1Model.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
