@@ -128,45 +128,51 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CitasController.cs" />
+    <Compile Include="Controllers\EstadoCitasController.cs" />
+    <Compile Include="Controllers\EstadoCivilsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OcupacionsController.cs" />
+    <Compile Include="Controllers\PacientesController.cs" />
+    <Compile Include="Controllers\SalonesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Cita.cs">
-      <DependentUpon>GestionCitasModel.tt</DependentUpon>
+      <DependentUpon>GestionCitas.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EstadoCita.cs">
-      <DependentUpon>GestionCitasModel.tt</DependentUpon>
+      <DependentUpon>GestionCitas.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EstadoCivil.cs">
-      <DependentUpon>GestionCitasModel.tt</DependentUpon>
+      <DependentUpon>GestionCitas.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\GestionCitasModel.Context.cs">
+    <Compile Include="Models\GestionCitas.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>GestionCitasModel.Context.tt</DependentUpon>
+      <DependentUpon>GestionCitas.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\GestionCitasModel.cs">
+    <Compile Include="Models\GestionCitas.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>GestionCitasModel.tt</DependentUpon>
+      <DependentUpon>GestionCitas.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\GestionCitasModel.Designer.cs">
+    <Compile Include="Models\GestionCitas.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>GestionCitasModel.edmx</DependentUpon>
+      <DependentUpon>GestionCitas.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Ocupacion.cs">
-      <DependentUpon>GestionCitasModel.tt</DependentUpon>
+      <DependentUpon>GestionCitas.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Paciente.cs">
-      <DependentUpon>GestionCitasModel.tt</DependentUpon>
+      <DependentUpon>GestionCitas.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Salone.cs">
-      <DependentUpon>GestionCitasModel.tt</DependentUpon>
+      <DependentUpon>GestionCitas.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>GestionCitasModel.tt</DependentUpon>
+      <DependentUpon>GestionCitas.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -179,24 +185,24 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\GestionCitasModel.Context.tt">
+    <Content Include="Models\GestionCitas.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>GestionCitasModel.edmx</DependentUpon>
-      <LastGenOutput>GestionCitasModel.Context.cs</LastGenOutput>
+      <DependentUpon>GestionCitas.edmx</DependentUpon>
+      <LastGenOutput>GestionCitas.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\GestionCitasModel.tt">
+    <Content Include="Models\GestionCitas.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>GestionCitasModel.edmx</DependentUpon>
-      <LastGenOutput>GestionCitasModel.cs</LastGenOutput>
+      <DependentUpon>GestionCitas.edmx</DependentUpon>
+      <LastGenOutput>GestionCitas.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\GestionCitasModel.edmx">
+    <EntityDeploy Include="Models\GestionCitas.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>GestionCitasModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>GestionCitas.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\GestionCitasModel.edmx.diagram">
-      <DependentUpon>GestionCitasModel.edmx</DependentUpon>
+    <Content Include="Models\GestionCitas.edmx.diagram">
+      <DependentUpon>GestionCitas.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -223,6 +229,36 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Salones\Create.cshtml" />
+    <Content Include="Views\Salones\Delete.cshtml" />
+    <Content Include="Views\Salones\Details.cshtml" />
+    <Content Include="Views\Salones\Edit.cshtml" />
+    <Content Include="Views\Salones\Index.cshtml" />
+    <Content Include="Views\Ocupacions\Create.cshtml" />
+    <Content Include="Views\Ocupacions\Delete.cshtml" />
+    <Content Include="Views\Ocupacions\Details.cshtml" />
+    <Content Include="Views\Ocupacions\Edit.cshtml" />
+    <Content Include="Views\Ocupacions\Index.cshtml" />
+    <Content Include="Views\EstadoCivils\Create.cshtml" />
+    <Content Include="Views\EstadoCivils\Delete.cshtml" />
+    <Content Include="Views\EstadoCivils\Details.cshtml" />
+    <Content Include="Views\EstadoCivils\Edit.cshtml" />
+    <Content Include="Views\EstadoCivils\Index.cshtml" />
+    <Content Include="Views\EstadoCitas\Create.cshtml" />
+    <Content Include="Views\EstadoCitas\Delete.cshtml" />
+    <Content Include="Views\EstadoCitas\Details.cshtml" />
+    <Content Include="Views\EstadoCitas\Edit.cshtml" />
+    <Content Include="Views\EstadoCitas\Index.cshtml" />
+    <Content Include="Views\Pacientes\Create.cshtml" />
+    <Content Include="Views\Pacientes\Delete.cshtml" />
+    <Content Include="Views\Pacientes\Details.cshtml" />
+    <Content Include="Views\Pacientes\Edit.cshtml" />
+    <Content Include="Views\Pacientes\Index.cshtml" />
+    <Content Include="Views\Citas\Create.cshtml" />
+    <Content Include="Views\Citas\Delete.cshtml" />
+    <Content Include="Views\Citas\Details.cshtml" />
+    <Content Include="Views\Citas\Edit.cshtml" />
+    <Content Include="Views\Citas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

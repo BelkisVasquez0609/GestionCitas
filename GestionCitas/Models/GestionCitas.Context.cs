@@ -13,10 +13,10 @@ namespace GestionCitas.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class GestionCitas1Entities1 : DbContext
+    public partial class GestionCitas1Entities2 : DbContext
     {
-        public GestionCitas1Entities1()
-            : base("name=GestionCitas1Entities1")
+        public GestionCitas1Entities2()
+            : base("name=GestionCitas1Entities2")
         {
         }
     

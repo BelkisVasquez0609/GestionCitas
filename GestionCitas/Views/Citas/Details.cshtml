@@ -1,0 +1,82 @@
+﻿@model GestionCitas.Models.Cita
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Cita</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Seq)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Seq)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hora)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Motivo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Motivo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaCreado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaCreado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EstadoCita.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EstadoCita.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Paciente.Cedula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Paciente.Cedula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Salone.Salon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Salone.Salon)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

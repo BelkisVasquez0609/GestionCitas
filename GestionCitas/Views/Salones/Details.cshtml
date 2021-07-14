@@ -1,0 +1,42 @@
+﻿@model GestionCitas.Models.Salone
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Salone</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Seq)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Seq)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Salon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Salon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaCreado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaCreado)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

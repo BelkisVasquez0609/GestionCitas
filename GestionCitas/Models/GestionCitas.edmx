@@ -325,7 +325,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="GestionCitas1Entities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="GestionCitas1Entities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Citas" EntityType="Self.Cita" />
           <EntitySet Name="EstadoCitas" EntityType="Self.EstadoCita" />
           <EntitySet Name="EstadoCivils" EntityType="Self.EstadoCivil" />
@@ -359,7 +359,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="GestionCitas1ModelStoreContainer" CdmEntityContainer="GestionCitas1Entities1">
+        <EntityContainerMapping StorageEntityContainer="GestionCitas1ModelStoreContainer" CdmEntityContainer="GestionCitas1Entities2">
           <EntitySetMapping Name="Citas">
             <EntityTypeMapping TypeName="GestionCitas1Model.Cita">
               <MappingFragment StoreEntitySet="Citas">

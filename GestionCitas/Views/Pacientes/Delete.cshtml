@@ -1,0 +1,80 @@
+﻿@model GestionCitas.Models.Paciente
+
+@{
+    ViewBag.Title = "Borrar";
+}
+
+<br />
+<center>
+    <h3 style="font-weight:bold;text-decoration-line:underline">Estas seguro que quieres eliminar este paciente?</h3><h4>Paciente</h4>
+</center>
+
+<div>
+
+    <hr />
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-5 col-md-6"> @Html.DisplayNameFor(model => model.Seq)</div>
+            <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0"> @Html.DisplayFor(model => model.Seq)</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-5 col-lg-6">@Html.DisplayNameFor(model => model.Cedula)</div>
+            <div class="col-sm-6 col-md-5 offset-md-2 col-lg-6 offset-lg-0">@Html.DisplayFor(model => model.Cedula)</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-5 col-lg-6"> <label>Nombre completo</label></div>
+            <div class="col-sm-6 col-md-5 offset-md-2 col-lg-6 offset-lg-0">@Html.DisplayFor(model => model.Nombre)</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-5 col-lg-6"><label>Dirección</label></div>
+            <div class="col-sm-6 col-md-5 offset-md-2 col-lg-6 offset-lg-0">@Html.DisplayFor(model => model.Direccion)</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-5 col-lg-6">@Html.DisplayNameFor(model => model.Telefono)</div>
+            <div class="col-sm-6 col-md-5 offset-md-2 col-lg-6 offset-lg-0">@Html.DisplayFor(model => model.Telefono)</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-5 col-lg-6">@Html.DisplayNameFor(model => model.Email)</div>
+            <div class="col-sm-6 col-md-5 offset-md-2 col-lg-6 offset-lg-0">@Html.DisplayFor(model => model.Email)</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-5 col-lg-6">@Html.DisplayNameFor(model => model.Sexo)</div>
+            <div class="col-sm-6 col-md-5 offset-md-2 col-lg-6 offset-lg-0">@Html.DisplayFor(model => model.Sexo)</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-5 col-lg-6"> @Html.DisplayNameFor(model => model.Celular)</div>
+            <div class="col-sm-6 col-md-5 offset-md-2 col-lg-6 offset-lg-0">@Html.DisplayFor(model => model.Celular)</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-5 col-lg-6"> <label>Fecha de nacimiento</label></div>
+            <div class="col-sm-6 col-md-5 offset-md-2 col-lg-6 offset-lg-0">@Html.DisplayFor(model => model.FechaNacimiento)</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-5 col-lg-6"> <label>Fecha de creación</label></div>
+            <div class="col-sm-6 col-md-5 offset-md-2 col-lg-6 offset-lg-0">@Html.DisplayFor(model => model.FechaCreado)</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-5 col-lg-6">  <label>Estado civil</label></div>
+            <div class="col-sm-6 col-md-5 offset-md-2 col-lg-6 offset-lg-0">@Html.DisplayFor(model => model.EstadoCivil.Descripcion)</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-5 col-lg-6"> <label>Ocupación</label></div>
+            <div class="col-sm-6 col-md-5 offset-md-2 col-lg-6 offset-lg-0">@Html.DisplayFor(model => model.Ocupacion.Descripcion)</div>
+        </div>
+    </div>
+    <br />
+    <center>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Borrar" class="btn btn-danger" /> |
+                @Html.ActionLink("Regresar a la lista de pacientes", "Index")
+            </div>
+        }
+    </center>
+</div>
+
+
