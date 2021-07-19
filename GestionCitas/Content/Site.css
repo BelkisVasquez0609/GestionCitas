@@ -34,6 +34,7 @@ h2 {
 .h2-c{
     margin-top: 0;
     text-decoration: none;
+    font-size: 3.1vh;
 }
 .img-c {
     border-style: solid;
@@ -42,6 +43,13 @@ h2 {
     border-radius: 50%;
     margin-top: 10px;
     margin-bottom: 5px;
+    height:8vh;
+    width:8vh;
+}
+
+.p-c{
+    margin-bottom:10px;
+    font-size:1.7vh;
 }
 /*.btn-success {
     color: #fff;
