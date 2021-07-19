@@ -10,36 +10,36 @@
 <center><h2>Crear Estado civil</h2></center>
 
 @using (Html.BeginForm())
-{
+ {
 	@Html.AntiForgeryToken()
 
-<div class="form-horizontal">
-	<h4>Estado civil</h4>
-	<hr />
-	@Html.ValidationSummary(true, "", new { @class = "text-danger" })
-	<div class="form-group">
-		<div class="row">
-			<div class="col-lg-offset-3">
-				@Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
-				<div class="col-md-10">
-					@Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control" } })
-					@Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+	<div class="form-horizontal">
+		<h4>Estado civil</h4>
+		<hr />
+		@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+		<div class="form-group">
+			<div class="row">
+				<div class="col-lg-offset-3">
+					@Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
+					<div class="col-md-10">
+						@Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control" } })
+						@Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+					</div>
 				</div>
 			</div>
 		</div>
+
+
+		<center>
+			<input type="submit" value="Crear" class="btn btn-success" style="width:450px" />
+		</center>
 	</div>
-
-
-	<center>
-		<input type="submit" value="Crear" class="btn btn-success" style="width:450px" />
-	</center>
-</div>
-		}
+ }
 
 <div>
 	@Html.ActionLink("Regresar a la lista de pacientes", "Index")
 </div>
 
-		@section Scripts {
-			@Scripts.Render("~/bundles/jqueryval")
-		}
+	@section Scripts {
+		@Scripts.Render("~/bundles/jqueryval")
+	}

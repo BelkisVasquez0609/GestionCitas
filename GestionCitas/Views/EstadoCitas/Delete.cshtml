@@ -35,12 +35,12 @@
 	</dl>
 
 	@using (Html.BeginForm())
-	{
+   	 {
 		@Html.AntiForgeryToken()
 
 		<div class="form-actions no-color">
 			<input type="submit" value="Borrar" class="btn btn-danger" /> |
 			@Html.ActionLink("Regresar a la lista de pacientes", "Index")
 		</div>
-	}
+	 }
 </div>
