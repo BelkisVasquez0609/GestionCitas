@@ -51,6 +51,7 @@ namespace GestionCitas.Controllers
             if (ModelState.IsValid)
             {
                 estadoCita.Id = Guid.NewGuid();
+                estadoCita.FechaCreado = DateTime.Now;
                 db.EstadoCitas.Add(estadoCita);
                 db.SaveChanges();
                 return RedirectToAction("Index");
