@@ -2053,8 +2053,8 @@ pre code {
     width: 33.33333333%;
   }
     .col-md-4-c {
-        width: 26.66666666%;
-        height: 26.66666666%;
+        width: 50vh;
+        height: 26vh;
         border-radius: 15px;
         display: inline-block;
         align-items: center;
