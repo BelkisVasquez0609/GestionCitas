@@ -12,12 +12,12 @@ namespace GestionCitas.Controllers
 {
     public class EstadoCivilsController : Controller
     {
-        private GestionCitas1Entities2 db = new GestionCitas1Entities2();
+        private GestionCitas1Entities1 db = new GestionCitas1Entities1();
 
         // GET: EstadoCivils
         public ActionResult Index()
         {
-            return View(db.EstadoCivils.ToList());
+            return View(db.EstadoCivil.ToList());
         }
 
         // GET: EstadoCivils/Details/5
@@ -27,7 +27,7 @@ namespace GestionCitas.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            EstadoCivil estadoCivil = db.EstadoCivils.Find(id);
+            EstadoCivil estadoCivil = db.EstadoCivil.Find(id);
             if (estadoCivil == null)
             {
                 return HttpNotFound();
@@ -52,7 +52,7 @@ namespace GestionCitas.Controllers
             {
                 estadoCivil.Id = Guid.NewGuid();
                 estadoCivil.FechaCreado = DateTime.Now;
-                db.EstadoCivils.Add(estadoCivil);
+                db.EstadoCivil.Add(estadoCivil);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -67,7 +67,7 @@ namespace GestionCitas.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            EstadoCivil estadoCivil = db.EstadoCivils.Find(id);
+            EstadoCivil estadoCivil = db.EstadoCivil.Find(id);
             if (estadoCivil == null)
             {
                 return HttpNotFound();
@@ -98,7 +98,7 @@ namespace GestionCitas.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            EstadoCivil estadoCivil = db.EstadoCivils.Find(id);
+            EstadoCivil estadoCivil = db.EstadoCivil.Find(id);
             if (estadoCivil == null)
             {
                 return HttpNotFound();
@@ -111,8 +111,8 @@ namespace GestionCitas.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
         {
-            EstadoCivil estadoCivil = db.EstadoCivils.Find(id);
-            db.EstadoCivils.Remove(estadoCivil);
+            EstadoCivil estadoCivil = db.EstadoCivil.Find(id);
+            db.EstadoCivil.Remove(estadoCivil);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

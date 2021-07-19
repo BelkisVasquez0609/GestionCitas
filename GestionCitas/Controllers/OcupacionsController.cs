@@ -12,12 +12,12 @@ namespace GestionCitas.Controllers
 {
     public class OcupacionsController : Controller
     {
-        private GestionCitas1Entities2 db = new GestionCitas1Entities2();
+        private GestionCitas1Entities1 db = new GestionCitas1Entities1();
 
         // GET: Ocupacions
         public ActionResult Index()
         {
-            return View(db.Ocupacions.ToList());
+            return View(db.Ocupacion.ToList());
         }
 
         // GET: Ocupacions/Details/5
@@ -27,7 +27,7 @@ namespace GestionCitas.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Ocupacion ocupacion = db.Ocupacions.Find(id);
+            Ocupacion ocupacion = db.Ocupacion.Find(id);
             if (ocupacion == null)
             {
                 return HttpNotFound();
@@ -52,7 +52,7 @@ namespace GestionCitas.Controllers
             {
                 ocupacion.Id = Guid.NewGuid();
                 ocupacion.FechaCreado = DateTime.Now;
-                db.Ocupacions.Add(ocupacion);
+                db.Ocupacion.Add(ocupacion);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -67,7 +67,7 @@ namespace GestionCitas.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Ocupacion ocupacion = db.Ocupacions.Find(id);
+            Ocupacion ocupacion = db.Ocupacion.Find(id);
             if (ocupacion == null)
             {
                 return HttpNotFound();
@@ -98,7 +98,7 @@ namespace GestionCitas.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Ocupacion ocupacion = db.Ocupacions.Find(id);
+            Ocupacion ocupacion = db.Ocupacion.Find(id);
             if (ocupacion == null)
             {
                 return HttpNotFound();
@@ -111,8 +111,8 @@ namespace GestionCitas.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
         {
-            Ocupacion ocupacion = db.Ocupacions.Find(id);
-            db.Ocupacions.Remove(ocupacion);
+            Ocupacion ocupacion = db.Ocupacion.Find(id);
+            db.Ocupacion.Remove(ocupacion);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

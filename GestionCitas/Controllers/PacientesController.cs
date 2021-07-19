@@ -12,7 +12,7 @@ namespace GestionCitas.Controllers
 {
     public class PacientesController : Controller
     {
-        private GestionCitas1Entities2 db = new GestionCitas1Entities2();
+        private GestionCitas1Entities1 db = new GestionCitas1Entities1();
 
         // GET: Pacientes
         public ActionResult Index()
@@ -28,7 +28,7 @@ namespace GestionCitas.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Paciente paciente = db.Pacientes.Find(id);
+            Pacientes paciente = db.Pacientes.Find(id);
             if (paciente == null)
             {
                 return HttpNotFound();
@@ -39,8 +39,8 @@ namespace GestionCitas.Controllers
         // GET: Pacientes/Create
         public ActionResult Create()
         {
-            ViewBag.EstadoCivilID = new SelectList(db.EstadoCivils, "Id", "Descripcion");
-            ViewBag.OcupacionID = new SelectList(db.Ocupacions, "Id", "Descripcion");
+            ViewBag.EstadoCivilID = new SelectList(db.EstadoCivil, "Id", "Descripcion");
+            ViewBag.OcupacionID = new SelectList(db.Ocupacion, "Id", "Descripcion");
             return View();
         }
 
@@ -49,7 +49,7 @@ namespace GestionCitas.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Seq,Cedula,Nombre,Direccion,Telefono,Email,Sexo,OcupacionID,Celular,EstadoCivilID,FechaNacimiento,FechaCreado")] Paciente paciente)
+        public ActionResult Create([Bind(Include = "Id,Seq,Cedula,Nombre,Direccion,Telefono,Email,Sexo,OcupacionID,Celular,EstadoCivilID,FechaNacimiento,FechaCreado")] Pacientes paciente)
         {
             if (paciente.Cedula != null)
             {
@@ -63,8 +63,8 @@ namespace GestionCitas.Controllers
                 }
             }
 
-            ViewBag.EstadoCivilID = new SelectList(db.EstadoCivils, "Id", "Descripcion", paciente.EstadoCivilID);
-            ViewBag.OcupacionID = new SelectList(db.Ocupacions, "Id", "Descripcion", paciente.OcupacionID);
+            ViewBag.EstadoCivilID = new SelectList(db.EstadoCivil, "Id", "Descripcion", paciente.EstadoCivilID);
+            ViewBag.OcupacionID = new SelectList(db.Ocupacion, "Id", "Descripcion", paciente.OcupacionID);
             return View(paciente);
         }
 
@@ -75,14 +75,14 @@ namespace GestionCitas.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Paciente paciente = db.Pacientes.Find(id);
+            Pacientes paciente = db.Pacientes.Find(id);
             
             if (paciente == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.EstadoCivilID = new SelectList(db.EstadoCivils, "Id", "Descripcion", paciente.EstadoCivilID);
-            ViewBag.OcupacionID = new SelectList(db.Ocupacions, "Id", "Descripcion", paciente.OcupacionID);
+            ViewBag.EstadoCivilID = new SelectList(db.EstadoCivil, "Id", "Descripcion", paciente.EstadoCivilID);
+            ViewBag.OcupacionID = new SelectList(db.Ocupacion, "Id", "Descripcion", paciente.OcupacionID);
             return View(paciente);
         }
 
@@ -91,7 +91,7 @@ namespace GestionCitas.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Seq,Cedula,Nombre,Direccion,Telefono,Email,Sexo,OcupacionID,Celular,EstadoCivilID,FechaNacimiento")] Paciente paciente)
+        public ActionResult Edit([Bind(Include = "Id,Seq,Cedula,Nombre,Direccion,Telefono,Email,Sexo,OcupacionID,Celular,EstadoCivilID,FechaNacimiento")] Pacientes paciente)
         {
             if (ModelState.IsValid)
             {
@@ -99,8 +99,8 @@ namespace GestionCitas.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.EstadoCivilID = new SelectList(db.EstadoCivils, "Id", "Descripcion", paciente.EstadoCivilID);
-            ViewBag.OcupacionID = new SelectList(db.Ocupacions, "Id", "Descripcion", paciente.OcupacionID);
+            ViewBag.EstadoCivilID = new SelectList(db.EstadoCivil, "Id", "Descripcion", paciente.EstadoCivilID);
+            ViewBag.OcupacionID = new SelectList(db.Ocupacion, "Id", "Descripcion", paciente.OcupacionID);
             return View(paciente);
         }
 
@@ -111,7 +111,7 @@ namespace GestionCitas.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Paciente paciente = db.Pacientes.Find(id);
+            Pacientes paciente = db.Pacientes.Find(id);
             if (paciente == null)
             {
                 return HttpNotFound();
@@ -124,7 +124,7 @@ namespace GestionCitas.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
         {
-            Paciente paciente = db.Pacientes.Find(id);
+            Pacientes paciente = db.Pacientes.Find(id);
             db.Pacientes.Remove(paciente);
             db.SaveChanges();
             return RedirectToAction("Index");

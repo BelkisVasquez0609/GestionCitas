@@ -4,17 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="bab5241f61584f9f9b6b5ca4c8917df5" Name="Diagram1">
-        <EntityTypeShape EntityType="GestionCitas1Model.Cita" Width="1.5" PointX="5.25" PointY="3.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="GestionCitas1Model.EstadoCita" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
+      <Diagram DiagramId="b62279270e294ca0abde68f2cd135755" Name="Diagram1">
+        <EntityTypeShape EntityType="GestionCitas1Model.Citas" Width="1.5" PointX="5.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionCitas1Model.EstadoCitas" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
         <EntityTypeShape EntityType="GestionCitas1Model.EstadoCivil" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="GestionCitas1Model.Ocupacion" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="GestionCitas1Model.Paciente" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="GestionCitas1Model.Salone" Width="1.5" PointX="3" PointY="11.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="GestionCitas1Model.sysdiagram" Width="1.5" PointX="5.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionCitas1Model.Pacientes" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionCitas1Model.Salones" Width="1.5" PointX="3" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionCitas1Model.sysdiagrams" Width="1.5" PointX="5.75" PointY="7.375" IsExpanded="true" />
         <AssociationConnector Association="GestionCitas1Model.FK__Citas__IdEstadoC__398D8EEE" ManuallyRouted="false" />
-        <AssociationConnector Association="GestionCitas1Model.FK__Citas__IdPacient__3B75D760" ManuallyRouted="false" />
         <AssociationConnector Association="GestionCitas1Model.FK__Citas__IdSalon__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionCitas1Model.FK_Citas_Pacientes" ManuallyRouted="false" />
         <AssociationConnector Association="GestionCitas1Model.FK__Pacientes__Estad__403A8C7D" ManuallyRouted="false" />
         <AssociationConnector Association="GestionCitas1Model.FK__Pacientes__Ocupa__46E78A0C" ManuallyRouted="false" />
       </Diagram>

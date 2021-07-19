@@ -12,7 +12,7 @@ namespace GestionCitas.Controllers
 {
     public class SalonesController : Controller
     {
-        private GestionCitas1Entities2 db = new GestionCitas1Entities2();
+        private GestionCitas1Entities1 db = new GestionCitas1Entities1();
 
         // GET: Salones
         public ActionResult Index()
@@ -27,7 +27,7 @@ namespace GestionCitas.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Salone salone = db.Salones.Find(id);
+            Salones salone = db.Salones.Find(id);
             if (salone == null)
             {
                 return HttpNotFound();
@@ -46,7 +46,7 @@ namespace GestionCitas.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Seq,Salon,FechaCreado")] Salone salone)
+        public ActionResult Create([Bind(Include = "Id,Seq,Salon,FechaCreado")] Salones salone)
         {
             if (ModelState.IsValid)
             {
@@ -67,7 +67,7 @@ namespace GestionCitas.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Salone salone = db.Salones.Find(id);
+            Salones salone = db.Salones.Find(id);
             if (salone == null)
             {
                 return HttpNotFound();
@@ -80,7 +80,7 @@ namespace GestionCitas.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Seq,Salon,FechaCreado")] Salone salone)
+        public ActionResult Edit([Bind(Include = "Id,Seq,Salon,FechaCreado")] Salones salone)
         {
             if (ModelState.IsValid)
             {
@@ -98,7 +98,7 @@ namespace GestionCitas.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Salone salone = db.Salones.Find(id);
+            Salones salone = db.Salones.Find(id);
             if (salone == null)
             {
                 return HttpNotFound();
@@ -111,7 +111,7 @@ namespace GestionCitas.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
         {
-            Salone salone = db.Salones.Find(id);
+            Salones salone = db.Salones.Find(id);
             db.Salones.Remove(salone);
             db.SaveChanges();
             return RedirectToAction("Index");

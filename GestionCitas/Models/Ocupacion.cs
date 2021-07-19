@@ -17,7 +17,7 @@ namespace GestionCitas.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Ocupacion()
         {
-            this.Pacientes = new HashSet<Paciente>();
+            this.Pacientes = new HashSet<Pacientes>();
         }
     
         public System.Guid Id { get; set; }
@@ -26,6 +26,6 @@ namespace GestionCitas.Models
         public System.DateTime FechaCreado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Paciente> Pacientes { get; set; }
+        public virtual ICollection<Pacientes> Pacientes { get; set; }
     }
 }

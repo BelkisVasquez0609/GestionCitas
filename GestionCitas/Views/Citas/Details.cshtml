@@ -1,82 +1,61 @@
-﻿@model GestionCitas.Models.Cita
+﻿@model GestionCitas.Models.Citas
 
 @{
-    ViewBag.Title = "Details";
+	ViewBag.Title = "Detalles de la cita";
 }
 
-<h2>Details</h2>
+<link href=" @Url.Content("~/Content/Site.css") " rel="stylesheet" type="text/css" />
+
+<br />
+<center><h2>Infomación de la cita</h2></center>
 
 <div>
-    <h4>Cita</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Seq)
-        </dt>
+	<h4>Citas</h4>
+	<hr />
 
-        <dd>
-            @Html.DisplayFor(model => model.Seq)
-        </dd>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-5 col-md-6"> @Html.DisplayNameFor(model => model.Seq)</div>
+			<div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0"> @Html.DisplayFor(model => model.Seq)</div>
+		</div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Fecha)
-        </dt>
+		<div class="row">
+			<div class="col-sm-5 col-md-6">@Html.DisplayNameFor(model => model.Fecha)</div>
+			<div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">@Html.DisplayFor(model => model.Fecha)</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-5 col-md-6">@Html.DisplayNameFor(model => model.Hora)</div>
+			<div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">@Html.DisplayFor(model => model.Hora)</div>
+		</div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Fecha)
-        </dd>
+		<div class="row">
+			<div class="col-sm-5 col-md-6">@Html.DisplayNameFor(model => model.Motivo)</div>
+			<div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">@Html.DisplayFor(model => model.Motivo)</div>
+		</div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Hora)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Hora)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Motivo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Motivo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FechaCreado)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FechaCreado)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EstadoCita.Descripcion)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EstadoCita.Descripcion)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Paciente.Cedula)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Paciente.Cedula)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Salone.Salon)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Salone.Salon)
-        </dd>
-
-    </dl>
+		<div class="row">
+			<div class="col-sm-5 col-md-6">@Html.DisplayNameFor(model => model.FechaCreado)</div>
+			<div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">@Html.DisplayFor(model => model.FechaCreado)</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-5 col-md-6">@Html.DisplayNameFor(model => model.EstadoCitas.Descripcion)</div>
+			<div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">@Html.DisplayFor(model => model.EstadoCitas.Descripcion)</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-5 col-md-6">@Html.DisplayNameFor(model => model.Salones.Salon)</div>
+			<div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">@Html.DisplayFor(model => model.Salones.Salon)</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-5 col-md-6">@Html.DisplayNameFor(model => model.Pacientes.Cedula)</div>
+			<div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">@Html.DisplayFor(model => model.Pacientes.Cedula)</div>
+		</div>
+	</div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+</br>
+
+	<center>
+		<button type="button" class="btn btn-warning">
+			@Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new { @style = "color:white;" })
+		</button> |
+		@Html.ActionLink("Regresar a la lista de pacientes", "Index")
+	</center>

@@ -13,10 +13,10 @@ namespace GestionCitas.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class GestionCitas1Entities2 : DbContext
+    public partial class GestionCitas1Entities1 : DbContext
     {
-        public GestionCitas1Entities2()
-            : base("name=GestionCitas1Entities2")
+        public GestionCitas1Entities1()
+            : base("name=GestionCitas1Entities1")
         {
         }
     
@@ -25,12 +25,12 @@ namespace GestionCitas.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Cita> Citas { get; set; }
-        public virtual DbSet<EstadoCita> EstadoCitas { get; set; }
-        public virtual DbSet<EstadoCivil> EstadoCivils { get; set; }
-        public virtual DbSet<Ocupacion> Ocupacions { get; set; }
-        public virtual DbSet<Paciente> Pacientes { get; set; }
-        public virtual DbSet<Salone> Salones { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<Citas> Citas { get; set; }
+        public virtual DbSet<EstadoCitas> EstadoCitas { get; set; }
+        public virtual DbSet<EstadoCivil> EstadoCivil { get; set; }
+        public virtual DbSet<Ocupacion> Ocupacion { get; set; }
+        public virtual DbSet<Pacientes> Pacientes { get; set; }
+        public virtual DbSet<Salones> Salones { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

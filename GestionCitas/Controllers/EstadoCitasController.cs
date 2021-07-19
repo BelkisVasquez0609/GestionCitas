@@ -12,7 +12,7 @@ namespace GestionCitas.Controllers
 {
     public class EstadoCitasController : Controller
     {
-        private GestionCitas1Entities2 db = new GestionCitas1Entities2();
+        private GestionCitas1Entities1 db = new GestionCitas1Entities1();
 
         // GET: EstadoCitas
         public ActionResult Index()
@@ -27,7 +27,7 @@ namespace GestionCitas.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            EstadoCita estadoCita = db.EstadoCitas.Find(id);
+            EstadoCitas estadoCita = db.EstadoCitas.Find(id);
             if (estadoCita == null)
             {
                 return HttpNotFound();
@@ -46,7 +46,7 @@ namespace GestionCitas.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Seq,Descripcion,FechaCreado")] EstadoCita estadoCita)
+        public ActionResult Create([Bind(Include = "Id,Seq,Descripcion,FechaCreado")] EstadoCitas estadoCita)
         {
             if (ModelState.IsValid)
             {
@@ -67,7 +67,7 @@ namespace GestionCitas.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            EstadoCita estadoCita = db.EstadoCitas.Find(id);
+            EstadoCitas estadoCita = db.EstadoCitas.Find(id);
             if (estadoCita == null)
             {
                 return HttpNotFound();
@@ -80,7 +80,7 @@ namespace GestionCitas.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Seq,Descripcion,FechaCreado")] EstadoCita estadoCita)
+        public ActionResult Edit([Bind(Include = "Id,Seq,Descripcion,FechaCreado")] EstadoCitas estadoCita)
         {
             if (ModelState.IsValid)
             {
@@ -98,7 +98,7 @@ namespace GestionCitas.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            EstadoCita estadoCita = db.EstadoCitas.Find(id);
+            EstadoCitas estadoCita = db.EstadoCitas.Find(id);
             if (estadoCita == null)
             {
                 return HttpNotFound();
@@ -111,7 +111,7 @@ namespace GestionCitas.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
         {
-            EstadoCita estadoCita = db.EstadoCitas.Find(id);
+            EstadoCitas estadoCita = db.EstadoCitas.Find(id);
             db.EstadoCitas.Remove(estadoCita);
             db.SaveChanges();
             return RedirectToAction("Index");

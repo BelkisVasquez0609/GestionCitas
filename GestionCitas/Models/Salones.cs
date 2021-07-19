@@ -12,20 +12,20 @@ namespace GestionCitas.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Cita
+    public partial class Salones
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Salones()
+        {
+            this.Citas = new HashSet<Citas>();
+        }
+    
         public System.Guid Id { get; set; }
         public int Seq { get; set; }
-        public System.Guid IdPaciente { get; set; }
-        public System.Guid IdSalon { get; set; }
-        public Nullable<System.DateTime> Fecha { get; set; }
-        public Nullable<System.DateTime> Hora { get; set; }
-        public string Motivo { get; set; }
-        public Nullable<System.Guid> IdEstadoCita { get; set; }
+        public string Salon { get; set; }
         public System.DateTime FechaCreado { get; set; }
     
-        public virtual EstadoCita EstadoCita { get; set; }
-        public virtual Paciente Paciente { get; set; }
-        public virtual Salone Salone { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Citas> Citas { get; set; }
     }
 }

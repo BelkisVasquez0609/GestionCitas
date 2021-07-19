@@ -1,4 +1,4 @@
-﻿@model IEnumerable<GestionCitas.Models.Paciente>
+﻿@model IEnumerable<GestionCitas.Models.Pacientes>
 
 @{
     ViewBag.Title = "Pacientes";
@@ -87,11 +87,15 @@
                 @Html.DisplayFor(modelItem => item.Ocupacion.Descripcion)
             </td>
             <td>
-                <div class="btn-group-vertical">
-                    @Html.ActionLink("Editar   ", "Edit", new { id = item.Id })
-                    @Html.ActionLink("Detalles", "Details", new { id = item.Id })
-                    @Html.ActionLink("Borrar ", "Delete", new { id = item.Id })
-                </div>
+				<div class="btn-group-vertical">
+					<div class="btn btn-primary">
+						@Html.ActionLink("Editar   ", "Edit", new { id = item.Id }, new { @style = "color:white;" }) |
+
+
+						@Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @style = "color:white;" }) |
+						@Html.ActionLink("Borrar ", "Delete", new { id = item.Id }, new { @style = "color:white;" })
+					</div>
+				</div>
 
             </td>
         </tr>

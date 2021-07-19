@@ -11,14 +11,14 @@ namespace GestionCitas.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
+	using System.ComponentModel.DataAnnotations;
 
-    public partial class Paciente
+	public partial class Pacientes
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Paciente()
+        public Pacientes()
         {
-            this.Citas = new HashSet<Cita>();
+            this.Citas = new HashSet<Citas>();
         }
     
         public System.Guid Id { get; set; }
@@ -40,7 +40,7 @@ namespace GestionCitas.Models
         public System.DateTime FechaCreado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Cita> Citas { get; set; }
+        public virtual ICollection<Citas> Citas { get; set; }
         public virtual EstadoCivil EstadoCivil { get; set; }
         public virtual Ocupacion Ocupacion { get; set; }
     }
