@@ -6,6 +6,7 @@
 <link href=" @Url.Content("~/Content/Site.css") " rel="stylesheet" type="text/css" />
 
 <center><h2>Estado Civil</h2></center>
+
 <div class="btn btn-success">
     @Html.ActionLink("Crear nuevo", "Create", new { @class = "btn btn-success" }, new { @style = "color:white;" })
 </div>
@@ -18,9 +19,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Descripcion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FechaCreado)
         </th>
         <th></th>
     </tr>
@@ -35,12 +33,13 @@
                 @Html.DisplayFor(modelItem => item.Descripcion)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.FechaCreado)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+				<div class="btn-group-vertical">
+					<div class="btn btn-primary">
+						@Html.ActionLink("Editar   ", "Edit", new { id = item.Id }, new { @style = "color:white;" }) |
+						@Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @style = "color:white;" }) |
+						@Html.ActionLink("Borrar ", "Delete", new { id = item.Id }, new { @style = "color:white;" })
+					</div>
+				</div>
             </td>
         </tr>
     }

@@ -1,42 +1,42 @@
 ﻿@model GestionCitas.Models.EstadoCitas
 
 @{
-    ViewBag.Title = "Details";
+	ViewBag.Title = "Detalle Estado cita";
 }
 
-<h2>Details</h2>
+<link href=" @Url.Content("~/Content/Site.css") " rel="stylesheet" type="text/css" />
 
-<div>
-    <h4>EstadoCita</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Seq)
-        </dt>
+<br />
+<center><h2>Información del Estado Cita</h2></center>
 
-        <dd>
-            @Html.DisplayFor(model => model.Seq)
-        </dd>
+	<div>
+		<h4>Estado Cita</h4>
+		<hr />
+		<dl class="dl-horizontal">
+			<div class="col-lg-1">
+				<dt>
+					@Html.DisplayNameFor(model => model.Seq)
+				</dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </dt>
+				<dd>
+					@Html.DisplayFor(model => model.Seq)
+				</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Descripcion)
-        </dd>
+				<dt>
+					@Html.DisplayNameFor(model => model.Descripcion)
+				</dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FechaCreado)
-        </dt>
+				<dd>
+					@Html.DisplayFor(model => model.Descripcion)
+				</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.FechaCreado)
-        </dd>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+			</div>
+		</dl>
+	</div>
+	<center>
+		<button type="button" class="btn btn-warning">
+			@Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new { @style = "color:white;" })
+		</button> |
+		@Html.ActionLink("Regresar a la lista de pacientes", "Index")
+	</center>
