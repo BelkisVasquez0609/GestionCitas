@@ -1,48 +1,47 @@
 ﻿@model GestionCitas.Models.Ocupacion
 
 @{
-    ViewBag.Title = "Delete";
+	ViewBag.Title = "Borrar";
 }
 
-<h2>Delete</h2>
+<link href=" @Url.Content("~/Content/Site.css") " rel="stylesheet" type="text/css" />
 
-<h3>Are you sure you want to delete this?</h3>
+<br />
+<center><h2>Eliminar  ocupación</h2></center>
+
+<center><h3>Estas seguro que quieres eliminar esta ocupación</h3></center>
 <div>
-    <h4>Ocupacion</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Seq)
-        </dt>
+	<h4>Ocupación</h4>
+	<hr />
+	<dl class="dl-horizontal">
+		<div class="col-lg-6">
+			<dt>
+				@Html.DisplayNameFor(model => model.Seq)
+			</dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Seq)
-        </dd>
+			<dd>
+				@Html.DisplayFor(model => model.Seq)
+			</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </dt>
+			<dt>
+				@Html.DisplayNameFor(model => model.Descripcion)
+			</dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Descripcion)
-        </dd>
+			<dd>
+				@Html.DisplayFor(model => model.Descripcion)
+			</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FechaCreado)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.FechaCreado)
-        </dd>
+		</div>
+	</dl>
 
-    </dl>
+	@using (Html.BeginForm())
+	{
+		@Html.AntiForgeryToken()
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
+	<div class="form-actions no-color">
+		<input type="submit" value="Borrar" class="btn btn-danger" /> |
+		@Html.ActionLink("Regresar a la lista de pacientes", "Index")
+	</div>
+	}
 </div>
