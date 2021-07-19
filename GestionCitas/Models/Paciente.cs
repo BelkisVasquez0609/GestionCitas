@@ -11,7 +11,8 @@ namespace GestionCitas.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Paciente
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -31,6 +32,10 @@ namespace GestionCitas.Models
         public Nullable<System.Guid> OcupacionID { get; set; }
         public string Celular { get; set; }
         public Nullable<System.Guid> EstadoCivilID { get; set; }
+
+        [Display(Name = "FechaNacimiento")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> FechaNacimiento { get; set; }
         public System.DateTime FechaCreado { get; set; }
     
